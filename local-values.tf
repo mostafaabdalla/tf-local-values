@@ -8,6 +8,11 @@ locals {
     service = "backend"
   }
 }
+
+locals {
+  name_prefix = var.name != "" ? var.name : var.default
+}
+
 resource "aws_instance" "app-dev" {
   ami           = "ami-08e4e35cccc6189f4"
   instance_type = "t2.micro"
